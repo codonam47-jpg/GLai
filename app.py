@@ -1,6 +1,6 @@
 
 import gradio as gr
-improt os
+import os
 
 def answer(question):
     if "안녕" in question:
