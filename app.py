@@ -47,4 +47,9 @@ demo = gr.Interface(
 
 )
 
-demo.launch()
+improt os
+
+demo.launch(
+    server_name="0.0.0.0",
+    server_port=int(os.environ.get("port", 7860))
+)
