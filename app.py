@@ -1,5 +1,5 @@
+
 import gradio as gr
-import os
 
 def answer(question):
     if "안녕" in question:
@@ -15,16 +15,28 @@ def answer(question):
     elif "드롭" in question:
         return "드롭은 무릎 높이에서 해야 합니다."
     elif "언플레이어블(도저히 칠 수 없는 공)" in question:
-        return "언플레이어블은 1벌타후 구제를 받을 수 있습니다."
+        return "언플레이어블은 1벌타 후 구제를 받을 수 있습니다."
     elif "러프에 박힌 공" in question:
         return "러프에 박힌 공은 무벌타 구제가 가능합니다."
     elif "그린" in question :
-        return "그린에서는 볼마크로공위치를 표시한 다음 공을 닦고 플레이가 가능합니다."
+        return "그린에서는 볼마커로 공위치를 표시한 다음 공을 닦고 플레이가 가능합니다."
     elif "개발자" in question:
         return "GL.ai의 개발자는 골프견입니다."
+    
+    elif "골프견은 골프 잘쳐" in question:
+        return "싱글입니다."
+    elif "골프견 아빠는 골프 잘쳐?" in question:
+        return "싱글입니다..." 
+    elif "너 몇살이야?"in question:
+        return "저는 11살입니다." 
+    elif "이름" in question:
+        return "저는 GL Ai입니다."
+    elif "일하기 싫어" in question:
+        return "일을 해야 먹고 살죠...?"
+    elif "영어로 자기소개" in question:
+        return "Hello,my name is GL."
     else :
-        return "아직 배우지 못한 질문입니다."
-
+        return "아직 GL의 뇌속엔 그 단어나 문장은 없어요.."
 
 theme = gr.themes.Soft()
 css = """
@@ -40,7 +52,7 @@ demo = gr.Interface(
     inputs="text",
     outputs="text",
     title="Gl.ai",
-    description="GL.ai 입니다.",
+    description="GL에게 무엇이든 물어보세요!.",
     submit_btn="질문하기",
     clear_btn="초기화",
 
@@ -48,8 +60,7 @@ demo = gr.Interface(
 
 )
 
-
-demo.launch(
-    server_name="0.0.0.0",
+demo.launch()    
+server_name="0.0.0.0",
     server_port=int(os.environ.get("PORT", 7860))
 )
