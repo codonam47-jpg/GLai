@@ -1,5 +1,6 @@
 
 import gradio as gr
+improt as
 
 def answer(question):
     if "안녕" in question:
